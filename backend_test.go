@@ -5,7 +5,7 @@ import (
 
 	"github.com/aws/aws-sdk-go/service/dynamodb"
 	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbiface"
-	"github.com/gusaul/go-dynamock"
+	dynamock "github.com/gusaul/go-dynamock"
 )
 
 var (
