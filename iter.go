@@ -6,6 +6,11 @@ import (
 	"github.com/aws/aws-sdk-go/service/dynamodb"
 )
 
+var (
+	// ErrNullBackend is returned if you try to create an iterator with a null backend
+	ErrNullBackend = fmt.Errorf("Cannot create an Iter with a null backend")
+)
+
 // Iter provides a convenient interface for iterating over the elements returned
 // from paginated list API calls. Successive calls to the Next method will step
 // through each item in the list, fetching pages of items as needed. Iterators
@@ -22,6 +27,13 @@ type Iter struct {
 // NewIter returns a pointer to an Iter for the backend provided. It performs
 // an initial scan to populate the first page, and stores the next key to scan.
 func NewIter(b *Backend) *Iter {
+	// Ensure we didn't get a null backend
+	if b == nil {
+		return &Iter{
+			err: ErrNullBackend,
+		}
+	}
+
 	it := &Iter{
 		b: b,
 	}
@@ -74,7 +86,6 @@ func (it *Iter) getNextPage() {
 		return
 	}
 
-	fmt.Printf("[DEBUG] last %+v (%T)\n", out.LastEvaluatedKey, out.LastEvaluatedKey)
 	it.nextStartKey = out.LastEvaluatedKey
 	it.values = out.Items
 }

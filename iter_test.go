@@ -72,6 +72,15 @@ func TestIter_multiPage(t *testing.T) {
 	testFinished(it, t)
 }
 
+func TestIter_nullBackend(t *testing.T) {
+	var b *Backend
+
+	it := NewIter(b)
+	if it.Err() != ErrNullBackend {
+		t.Errorf("Expected a null backend error, got %v", it.Err())
+	}
+}
+
 func testBeer(it *Iter, t *testing.T) {
 	beer := *it.Current()["beer"].S
 	if beer != "yum" {
