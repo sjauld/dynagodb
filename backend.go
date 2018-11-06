@@ -1,8 +1,6 @@
 package dynagodb
 
 import (
-	"log"
-
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/dynamodb"
 	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbattribute"
@@ -35,8 +33,6 @@ func (b *Backend) PutItem(v interface{}) error {
 	if err != nil {
 		return err
 	}
-
-	log.Printf("[DEBUG] item: %+v", item)
 
 	_, err = b.Service.PutItem(&dynamodb.PutItemInput{
 		TableName: b.TableName,
