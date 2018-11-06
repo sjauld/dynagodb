@@ -24,6 +24,11 @@ func New(t string) *Backend {
 	}
 }
 
+// RetrieveAll returns a pointer to an Iter
+func (b *Backend) RetrieveAll() *Iter {
+	return NewIter(b)
+}
+
 // PutItem stores your go object in the table
 func (b *Backend) PutItem(v interface{}) error {
 	item, err := dynamodbattribute.MarshalMap(v)

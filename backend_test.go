@@ -23,13 +23,6 @@ type MegaTest struct {
 	MegaInt    int
 }
 
-func testBackend(tableName string) *Backend {
-	backend := New(tableName)
-
-	backend.Service = svc
-	return backend
-}
-
 func TestNew(t *testing.T) {
 	backend := testBackend("test-table")
 	if *backend.TableName != "test-table" {
@@ -49,4 +42,11 @@ func TestPutItem(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	}
+}
+
+func testBackend(tableName string) *Backend {
+	backend := New(tableName)
+
+	backend.Service = svc
+	return backend
 }
