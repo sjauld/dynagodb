@@ -3,9 +3,9 @@ go:
   - 1.11.x
   - master
 
-
 env:
   - GO111MODULE=on
+
 os:
   - linux
 
