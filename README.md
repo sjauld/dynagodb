@@ -3,6 +3,7 @@
 [![Travis build status](https://api.travis-ci.org/sjauld/dynagodb.png)](https://travis-ci.org/sjauld/dynagodb)
 [![Maintainability](https://api.codeclimate.com/v1/badges/620d10f572d4047367d5/maintainability)](https://codeclimate.com/github/sjauld/dynagodb/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/620d10f572d4047367d5/test_coverage)](https://codeclimate.com/github/sjauld/dynagodb/test_coverage)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fsjauld%2Fdynagodb.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fsjauld%2Fdynagodb?ref=badge_shield)
 
 
 Abstractions to facilitate the management of resources in DynamoDB
@@ -23,3 +24,7 @@ dependency management.
 ```
 @todo
 ```
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fsjauld%2Fdynagodb.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fsjauld%2Fdynagodb?ref=badge_large)
